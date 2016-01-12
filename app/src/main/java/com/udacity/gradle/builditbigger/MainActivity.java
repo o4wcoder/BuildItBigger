@@ -24,13 +24,13 @@ import java.io.IOException;
 import gradle.udacity.com.jokeractivity.JokerActivity;
 
 
-public class MainActivity extends ActionBarActivity implements EndpointListener{
+public class MainActivity extends ActionBarActivity {
 
 
 
     private static final String TAG = MainActivity.class.getSimpleName();
 
-    private static final String EXTRA_JOKE = "com.udacity.gradle.builditbigger.extra_joke";
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,23 +63,8 @@ public class MainActivity extends ActionBarActivity implements EndpointListener{
         return super.onOptionsItemSelected(item);
     }
 
-    public void tellJoke(View view){
-
-//        Intent intent = new Intent(this, JokerActivity.class);
-//        Joker joker = new Joker();
-//        //Toast.makeText(this, joker.getJoke(), Toast.LENGTH_LONG).show();
-//        intent.putExtra(EXTRA_JOKE,joker.getJoke());
-//        startActivity(intent);
-
-        new EndpointAsyncTask().execute(this);
-    }
 
 
-    @Override
-    public void fetchJokeComplete(String joke) {
-        Intent intent = new Intent(this, JokerActivity.class);
 
-        intent.putExtra(EXTRA_JOKE,joke);
-        startActivity(intent);
-    }
+
 }
