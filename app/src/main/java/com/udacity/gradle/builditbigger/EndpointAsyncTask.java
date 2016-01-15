@@ -54,7 +54,8 @@ public class EndpointAsyncTask extends AsyncTask<EndpointListener, Void, String>
             // return myApiService.sayHi(name).execute().getData();
             return myApiService.getJoke().execute().getData();
         } catch (IOException e) {
-            return e.getMessage();
+           // return e.getMessage();
+            return null;
         }
     }
 
@@ -75,5 +76,5 @@ public class EndpointAsyncTask extends AsyncTask<EndpointListener, Void, String>
 
 interface EndpointListener {
 
-    public void fetchJokeComplete(String joke);
+    void fetchJokeComplete(String joke);
 }

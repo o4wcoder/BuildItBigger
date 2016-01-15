@@ -2,6 +2,7 @@ package com.udacity.gradle.builditbigger;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
+import android.util.Log;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
@@ -35,13 +36,11 @@ public class JokeFetchTest extends ApplicationTestCase<Application> implements E
             endpointTask.execute(this);
             latch.await(30, TimeUnit.SECONDS);
 
-            assertNotNull("Joke was NULL",joke);
-            assertFalse("Empty String",joke.length() == 0);
-
-
+            assertNotNull("Joke was NULL", joke);
+            assertFalse("Empty String", joke.length() == 0);
 
         } catch (Exception e) {
-
+            fail("Exception in test!");
         }
 
     }

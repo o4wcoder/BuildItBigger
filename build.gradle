@@ -16,4 +16,49 @@ allprojects {
     repositories {
         jcenter()
     }
+
 }
+
+//evaluationDependsOn ":jokesbacked"
+//task startServer {
+//   tasks.getByPath(":jokesbacked:appengineRun")
+//
+//    doLast {
+//        println "start Server"
+//    }
+//}
+
+//startTests = tasks.getByPath(":app:connectedCheck")
+
+//    doLast {
+//        println "Run Android Tests"
+//    }
+//}
+
+
+//evaluationDependsOn ":app"
+//evaluationDependsOn ":jokesbacked"
+//
+//project(":jokesbacked"){
+//    appengine{
+//        daemon true
+//    }
+//}
+
+
+
+task testJokeEndpoint {
+    tasks.getByPath(":app:connectedCheck").mustRunAfter tasks.getByPath(":jokesbacked:appengineRun")
+    tasks.getByPath(":jokesbacked:appengineStop").mustRunAfter tasks.getByPath(":app:connectedCheck")
+    dependsOn ":jokesbacked:appengineRun", ":app:connectedCheck", ":jokesbacked:appengineStop"
+
+}
+//
+//task stopServer {
+//    dependsOn "startServer"
+//        println "Stop GCE Server"
+//
+//}
+
+
+

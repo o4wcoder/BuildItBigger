@@ -31,7 +31,13 @@ public class JokerActivityFragment extends Fragment {
             String strJoke = intent.getStringExtra(EXTRA_JOKE);
 
             TextView textView = (TextView)view.findViewById(R.id.jokeTextView);
-            textView.setText(strJoke);
+
+            if((strJoke == null) || (strJoke.length() == 0)) {
+                textView.setText(getString(R.string.retrieve_jokes_error));
+            }
+            else {
+                textView.setText(strJoke);
+            }
         }
         return view;
     }

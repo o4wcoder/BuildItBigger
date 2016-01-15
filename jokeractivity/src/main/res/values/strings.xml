@@ -2,4 +2,5 @@
     <string name="app_name">Here\'s Your Joke</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="retrieve_jokes_error">Error! Could not retrieve jokes.</string>
 </resources>
